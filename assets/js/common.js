@@ -5,7 +5,10 @@ class Interaction {
     this.selectItem = Array.from(
       document.querySelectorAll(".select_item input")
     );
-    this.productImg = Array.from(document.querySelector(".product_img"));
+    this.container = document.querySelector(".product_detail");
+    this.productImg = document.querySelector(".product_img");
+    this.img = document.querySelector(".product_img .img");
+    this.header = document.querySelector(".header");
   }
 
   access() {
@@ -36,13 +39,77 @@ class Interaction {
   }
 
   scrollAnimate() {
-    const timeline = new ScrollTimeline({
-      source: document.documentElement,
-    });
+    const o = {
+      offset1: 0,
+      offset2: this.container.offsetTop,
+      h: `${600 - window.scrollY}px`,
+    };
 
-    this.productImg.animate([{ rotate: ["0deg", "720deg"] }], {
-      timeline,
-    });
+    this.img.animate(
+      [
+        {
+          transform: `scale(1)`,
+          height: o.h,
+          offset: 0,
+        },
+        {
+          transform: `scale(0.1)`,
+          height: o.h,
+          offset: 0.5,
+        },
+        {
+          transform: `scale(0.1)`,
+          left: `0`,
+          height: o.h,
+          offset: 0.9,
+        },
+        {
+          transform: `scale(0.1)`,
+          left: `100%`,
+          height: o.h,
+          offset: 1,
+        },
+      ],
+      {
+        fill: "both",
+        timeline: new ScrollTimeline({
+          scrollOffsets: [
+            new CSSUnitValue(o.offset1, "px"),
+            new CSSUnitValue(o.offset2, "px"),
+          ],
+        }),
+      }
+    );
+
+    this.header.animate(
+      [
+        {
+          opacity: 1,
+          offset: 0,
+        },
+        {
+          opacity: 1,
+          offset: 0.75,
+        },
+        {
+          opacity: 0,
+          offset: 0.76,
+        },
+        {
+          opacity: 0,
+          offset: 1,
+        },
+      ],
+      {
+        fill: "both",
+        timeline: new ScrollTimeline({
+          scrollOffsets: [
+            new CSSUnitValue(o.offset1, "px"),
+            new CSSUnitValue(o.offset2, "px"),
+          ],
+        }),
+      }
+    );
   }
 
   addEvent() {

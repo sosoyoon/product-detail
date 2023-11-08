@@ -10,13 +10,31 @@ img {
   margin: 0 auto;
 }
 .header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid #eee;
+  background: #fff;
 }
 .header h1 {
   font-size: 16px;
 }
+.product_detail {
+  position: relative;
+  margin-top: calc(100vw + 50px);
+}
 .product_img {
   text-align: center;
+}
+.product_img .img {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.container {
+  contain: paint;
 }
 .container .product_select + .product_select {
   background: #f2f3f5;
@@ -61,4 +79,13 @@ img {
 }
 .select_item.active {
   border-color: red;
+}
+.tabs {
+  display: flex;
+}
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid green;
+  box-sizing: border-box;
 }
