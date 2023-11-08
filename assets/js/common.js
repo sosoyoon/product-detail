@@ -8,7 +8,10 @@ class Interaction {
     this.container = document.querySelector(".product_detail");
     this.productImg = document.querySelector(".product_img");
     this.img = document.querySelector(".product_img .img");
-    this.header = document.querySelector(".header");
+    this.nav = document.querySelector("nav");
+
+    this.headerHeight = 40;
+    this.containerMargin = 375;
   }
 
   access() {
@@ -32,7 +35,10 @@ class Interaction {
 
   stepMove(index) {
     window.scrollTo({
-      top: this.sections[index + 1].offsetTop,
+      top:
+        this.sections[index + 1].offsetTop +
+        this.containerMargin +
+        this.headerHeight,
       left: 0,
       behavior: "smooth",
     });
@@ -42,31 +48,37 @@ class Interaction {
     const o = {
       offset1: 0,
       offset2: this.container.offsetTop,
-      h: `${600 - window.scrollY}px`,
+      t: "-10px",
     };
 
     this.img.animate(
       [
         {
-          transform: `scale(1)`,
-          height: o.h,
+          height: `${this.containerMargin}px`,
           offset: 0,
         },
         {
-          transform: `scale(0.1)`,
-          height: o.h,
+          top: `50px`,
+          height: `${this.headerHeight}px`,
           offset: 0.5,
         },
         {
-          transform: `scale(0.1)`,
+          top: o.t,
           left: `0`,
-          height: o.h,
+          height: `${this.headerHeight}px`,
+          marginLeft: 0,
+          offset: 0.77,
+        },
+        {
+          top: o.t,
+          left: `${window.innerWidth / 2 - 40}px`,
+          height: `${this.headerHeight}px`,
           offset: 0.9,
         },
         {
-          transform: `scale(0.1)`,
-          left: `100%`,
-          height: o.h,
+          top: o.t,
+          left: `${window.innerWidth / 2 - 40}px`,
+          height: `${this.headerHeight}px`,
           offset: 1,
         },
       ],
@@ -81,7 +93,7 @@ class Interaction {
       }
     );
 
-    this.header.animate(
+    this.nav.animate(
       [
         {
           opacity: 1,

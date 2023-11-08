@@ -12,9 +12,11 @@ img {
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 50px;
   position: sticky;
   top: 0;
+  z-index: 10;
   border-bottom: 1px solid #eee;
   background: #fff;
 }
@@ -30,11 +32,12 @@ img {
 }
 .product_img .img {
   position: fixed;
-  left: 0;
-  top: 0;
+  top: 50px;
+  z-index: 10;
+  width: 375px;
 }
-.container {
-  contain: paint;
+.product_img .img img {
+  max-height: 100%;
 }
 .container .product_select + .product_select {
   background: #f2f3f5;
