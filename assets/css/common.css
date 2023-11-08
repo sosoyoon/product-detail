@@ -1,9 +1,14 @@
 body{margin: 0 auto;}
 button, fieldset{border: none;}
 img{max-width: 100%; margin: 0 auto;}
+ul, li{list-style: none; padding: 0; margin: 0;}
+a{text-decoration: none; color: inherit;}
+a:hover{color: red;}
 .header{border-bottom: 1px solid #eee;}
 .header h1{font-size: 16px;}
 .product_img{text-align: center;}
+.nav_list{display: flex; flex-wrap: wrap; border: 1px solid lightgray;}
+.nav_item{padding: 10px 20px;}
 .container .product_select + .product_select{background: #f2f3f5; position: relative; padding-top: 20px;}
 .product_select .product_inner{background: #fff; padding: 20px 20px 60px; box-sizing: border-box;}
 .title{font-size: 24px;}
