@@ -34,7 +34,7 @@ img {
   position: fixed;
   top: 50px;
   z-index: 10;
-  width: 375px;
+  width: 100vw;
 }
 .product_img .img img {
   max-height: 100%;
